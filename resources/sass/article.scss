@@ -1,0 +1,25 @@
+.articleBody h2.section-header {
+    font-family: 'Soleil';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: var(--primary-colour);
+}
+
+.articleBody .text-size-regular {
+    color: #333538;
+}
+.articleBody .bullet-list-item{
+    display: inline;
+}
+.articleBody .bullet-list-item::after {
+    content: "●";
+    margin-left: 0px;
+    margin-right: 20px;
+}
+.articleBody .bullet-list-item.level-2::after {
+    content:"○";
+    margin-left: 40px;
+}

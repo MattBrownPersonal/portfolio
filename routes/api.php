@@ -1,0 +1,130 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResources([
+        'articles' => 'App\Http\Controllers\API\Admin\ArticlesController',
+        'attributes' => 'App\Http\Controllers\API\Admin\AttributesController',
+        'attributeTypes' => 'App\Http\Controllers\API\Admin\AttributeTypesController',
+        'categories' => 'App\Http\Controllers\API\Admin\ProductCategoryController',
+        'deceased' => 'App\Http\Controllers\API\Admin\DeceasedController',
+        'faqs' => 'App\Http\Controllers\API\Admin\FaqController',
+        'imageuploads' => 'App\Http\Controllers\API\Admin\ImageController',
+        'lineText' => 'App\Http\Controllers\API\Admin\LineTextController',
+        'linetypes' => 'App\Http\Controllers\API\Admin\LineTypesController',
+        'materialTypes' => 'App\Http\Controllers\API\Admin\MaterialController',
+        'memorialisations' => 'App\Http\Controllers\API\Admin\MemorialisationsController',
+        'notes' => 'App\Http\Controllers\API\Admin\NotesController',
+        'orders' => 'App\Http\Controllers\API\Admin\OrdersController',
+        'predefinedImages' => 'App\Http\Controllers\API\Admin\PredefinedImageController',
+        'products' => 'App\Http\Controllers\API\Admin\ProductsController',
+        'roles' => 'App\Http\Controllers\API\Admin\RolesController',
+        'settings' => 'App\Http\Controllers\API\Admin\SettingsController',
+        'shop' => 'App\Http\Controllers\API\Admin\ShopController',
+        'sites' => 'App\Http\Controllers\API\Admin\SiteController',
+        'siteStaff' => 'App\Http\Controllers\API\Admin\SiteStaffController',
+        'siteStyles' => 'App\Http\Controllers\API\Admin\SiteStylesController',
+        'suppliers' => 'App\Http\Controllers\API\Admin\SupplierController',
+        'user' => 'App\Http\Controllers\API\Admin\UsersController',
+        'users' => 'App\Http\Controllers\API\Admin\VivediaStaffController',
+        'fonts' => 'App\Http\Controllers\API\Admin\FontController',
+        'qrCodes' => 'App\Http\Controllers\API\Admin\QrController',
+    ]);
+
+    Route::GET('siteUrl', [App\Http\Controllers\API\Admin\SiteController::class, 'getSiteUrl']);
+    Route::put('siteDetails/{id}', [App\Http\Controllers\API\Admin\SiteController::class, 'updateSiteDetails']);
+    Route::DELETE('deleteColour/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'deleteColour'])->name('deleteColour');
+    Route::DELETE('deleteProductImage/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'deleteProductImage'])->name('deleteProductImage');
+    Route::GET('adminFetchSiteArticles/{code}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'adminFetchSiteArticles'])->name('adminFetchSiteArticles');
+    Route::GET('allsiteproducts/{site}', [App\Http\Controllers\API\Admin\ProductsController::class, 'allSiteProducts'])->name('allSiteProducts');
+    Route::GET('checkCategories', [App\Http\Controllers\API\Admin\ProductsController::class, 'checkCategories'])->name('checkCategories');
+    Route::GET('checkSiteCategories/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'checkSiteCategories'])->name('checkSiteCategories');
+    Route::GET('editProductImage/{id}/{productId}', [App\Http\Controllers\API\Admin\ImageController::class, 'getCustomProductImage'])->name('getCustomProductImage');
+    Route::GET('getBaseImage/{id}', [App\Http\Controllers\API\Admin\ImageController::class, 'getBaseImage'])->name('getBaseImage');
+    Route::GET('getSavedProducts/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'getSavedProducts'])->name('getSavedProducts');
+    Route::GET('menuPermissions', [App\Http\Controllers\API\Admin\PermissionsController::class, 'menuPermissions'])->name('menuPermissions');
+    Route::GET('productsBySite/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'productsBySite'])->name('productsBySite');
+    Route::GET('singleSiteproduct/{site}/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'singleSiteProduct'])->name('singleSiteProduct');
+    Route::GET('sitearticles/{id}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'getSiteArticles'])->name('getSiteArticles');
+    Route::GET('sitecategories/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'siteProducts'])->name('siteProducts');
+    Route::GET('site/{id}', [App\Http\Controllers\API\Admin\SiteController::class, 'siteName'])->name('siteName');
+    Route::GET('sitememorialisations/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'siteMemorialisations'])->name('siteMemorialisations');
+    Route::GET('siteproducts/{id}/{category}', [App\Http\Controllers\API\Admin\ProductsController::class, 'siteProducts'])->name('siteProducts');
+    Route::POST('copyProduct', [App\Http\Controllers\API\Admin\ProductsController::class, 'copyProduct'])->name('copyProduct');
+    Route::POST('newOrder/{id}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'storeNewOrder'])->name('storeNewOrder');
+    Route::POST('qr', [App\Http\Controllers\API\Admin\DeceasedController::class, 'getQrCode'])->name('getQrCode');
+    Route::POST('qrCodePrinted', [App\Http\Controllers\API\Admin\DeceasedController::class, 'qrCodeprinted'])->name('qrprinted');
+    Route::POST('saveProductAsDraft/{site}/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'saveProductAsDraft'])->name('saveProductAsDraft');
+    Route::POST('saveProduct/{site}/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'saveProduct'])->name('saveProduct');
+    Route::POST('sendApplicantMail', [App\Http\Controllers\API\Admin\DeceasedController::class, 'sendMail'])->name('sendApplicantMail');
+    Route::POST('sendImage', [App\Http\Controllers\API\Admin\ImageController::class, 'customImage'])->name('customImage');
+    Route::POST('setDateFormat/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'setDateFormat'])->name('setDateFormat');
+    Route::POST('storearticle', [App\Http\Controllers\API\Admin\ArticlesController::class, 'storeSiteArticles'])->name('storeSiteArticles');
+    Route::POST('storeAttributes/{id}', [App\Http\Controllers\API\Admin\AttributeTypesController::class, 'storeAttributes'])->name('storeAttributes');
+    Route::POST('storecolour', [App\Http\Controllers\API\Admin\ProductsController::class, 'storeColour'])->name('storeColour');
+    Route::POST('storeSiteMemorialisation', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'storeSiteMemorialisation'])->name('storeSiteMemorialisation');
+    Route::put('storeSiteMemorialisation', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'updateSiteMemorialisation'])->name('updateSiteMemorialisation');
+    Route::POST('storeSiteMemorialisationProduct', [App\Http\Controllers\API\Admin\ProductsController::class, 'storeSiteMemorialisationProduct'])->name('storeSiteMemorialisationProduct');
+    Route::POST('storeSiteproducts', [App\Http\Controllers\API\Admin\ProductsController::class, 'storeSiteProduct'])->name('storeSiteProduct');
+    Route::POST('storeUserSites/{id}', [App\Http\Controllers\API\Admin\VivediaStaffController::class, 'storeUserSites'])->name('storeUserSites');
+    Route::PUT('sitecontactdetails/{id}', [App\Http\Controllers\API\Admin\SiteController::class, 'storeContactDetails'])->name('storeContactDetails');
+    Route::PUT('storecolour/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'editColours'])->name('editColours');
+    Route::PUT('updateSiteproduct/{site}/{id}', [App\Http\Controllers\API\Admin\ProductsController::class, 'update'])->name('update');
+    Route::GET('fetchmemorialisation/{site}/{id}', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'fetchmemorialisation'])->name('fetchmemorialisation');
+    Route::PUT('editFaq/{id}', [App\Http\Controllers\API\Admin\FaqController::class, 'editFaqVisibility'])->name('editFaqVisibility');
+    Route::PUT('updatePredefinedImageVisibility/{id}', [App\Http\Controllers\API\Admin\PredefinedImageController::class, 'updatePredefinedImageVisibility']);
+    Route::PUT('storeFonts/{id}', [App\Http\Controllers\API\Admin\FontController::class, 'storeFonts'])->name('storeFonts');
+    Route::PUT('updateMaterialVisibility/{id}', [App\Http\Controllers\API\Admin\MaterialController::class, 'updateMaterialVisibility'])->name('updateMaterialVisibility');
+    Route::POST('deleteFont/{product_id}/{font_id}', [App\Http\Controllers\API\Admin\FontController::class, 'deleteFont'])->name('deleteFont');
+    Route::POST('updateOrder/{order_id}', [App\Http\Controllers\API\Admin\OrdersController::class, 'updateCustomerDetails']);
+    Route::GET('getSiteCategoriesForOrder/{id}', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'getSiteCategoriesForOrder']);
+    Route::GET('allProductsForOrder/{id}/{site}', [App\Http\Controllers\API\Admin\ProductsController::class, 'allProductsForOrder']);
+    Route::GET('fetchProductAttributes/{id}/{site}', [App\Http\Controllers\API\Admin\OrdersController::class, 'fetchProductAttributes']);
+    Route::DELETE('deleteSiteMemorialisation/{id}', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'deleteSiteMemorialisation']);
+    Route::POST('qrLeaflet', [App\Http\Controllers\API\Admin\QrController::class, 'createLeafletQrCode']);
+});
+
+//Obitus API Routes
+Route::apiResources([
+    'site' => 'App\Http\Controllers\API\Admin\SiteController',
+    'deceased' => 'App\Http\Controllers\API\Admin\DeceasedController',
+]);
+
+//Customer Facing Routes
+Route::GET('allcustomerproducts/{site_id}', [App\Http\Controllers\API\Customer\ProductsController::class, 'showAllProducts'])->name('showAllProducts');
+Route::GET('applicantshop/{code}', [App\Http\Controllers\API\Customer\ShopController::class, 'show'])->name('show');
+Route::GET('checkLandingCode/{code}', [App\Http\Controllers\API\Admin\DeceasedController::class, 'checkLandingCode'])->name('checkLandingCode');
+Route::GET('checkSite/{id}', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'checkSite'])->name('checkSite');
+Route::GET('contactdetails/{code}', [App\Http\Controllers\API\Admin\SiteController::class, 'getContactDetails'])->name('getContactDetails');
+Route::GET('customerproducts/{id}/{site_id}', [App\Http\Controllers\API\Customer\ProductsController::class, 'show'])->name('show');
+Route::GET('customImageDetails/{id}', [App\Http\Controllers\API\Customer\CustomImageController::class, 'getCustomImageDetails'])->name('getCustomImageDetails');
+Route::GET('customImage/{id}', [App\Http\Controllers\API\Customer\CustomImageController::class, 'show'])->name('show');
+Route::GET('featuredcustomerproducts/{site_id}', [App\Http\Controllers\API\Customer\ProductsController::class, 'showFeatured'])->name('showFeatured');
+Route::GET('fetchAllSiteArticles/{code}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'fetchSiteArticles'])->name('fetchSiteArticles');
+Route::GET('fetchDeceased/{code}', [App\Http\Controllers\API\Admin\DeceasedController::class, 'fetchDeceased'])->name('fetchDeceased');
+Route::GET('fetchmemorialisationname/{id}', [App\Http\Controllers\API\Customer\MemorialisationsController::class, 'getMemorialisation'])->name('getMemorialisation');
+Route::GET('fetchMemorialisations', [App\Http\Controllers\API\Customer\MemorialisationsController::class, 'index'])->name('index');
+Route::GET('fetchSiteArticle/{id}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'fetchSiteArticle'])->name('fetchSiteArticle');
+Route::GET('fetchSiteArticles/{code}', [App\Http\Controllers\API\Admin\ArticlesController::class, 'fetchSiteArticles'])->name('fetchSiteArticles');
+Route::GET('fetchSiteLineTypes/{id}', [App\Http\Controllers\API\Admin\LineTypesController::class, 'show'])->name('show');
+Route::GET('fetchSettings', [App\Http\Controllers\API\Customer\SettingsController::class, 'fetchSettings'])->name('fetchSettings');
+Route::GET('getAppUrl', [App\Http\Controllers\API\Customer\CheckoutController::class, 'getAppUrl'])->name('getAppUrl');
+Route::GET('getAttributes/{id}', [App\Http\Controllers\API\Admin\AttributeTypesController::class, 'getAttributes'])->name('getAttributes');
+Route::GET('getCustomText/{id}', [App\Http\Controllers\API\Customer\SettingsController::class, 'getSiteSettings'])->name('getSiteSettings');
+Route::GET('getPredefinedImages/{id}', [App\Http\Controllers\API\Admin\PredefinedImageController::class, 'show'])->name('show');
+Route::GET('getFaqs/{id}', [App\Http\Controllers\API\Customer\FaqController::class, 'show'])->name('show');
+Route::GET('getFaqs', [App\Http\Controllers\API\Customer\FaqController::class, 'index'])->name('index');
+Route::GET('getPredefinedImages/{id}', [App\Http\Controllers\API\Admin\PredefinedImageController::class, 'show'])->name('show');
+Route::GET('getproductcolours/{id}', [App\Http\Controllers\API\Customer\ProductsController::class, 'getColours'])->name('getColours');
+Route::GET('otherProducts/{code}', [App\Http\Controllers\API\Customer\ProductsController::class, 'getOtherProducts'])->name('getOtherProducts');
+Route::GET('product/{id}', [App\Http\Controllers\API\Customer\ProductsController::class, 'showProduct'])->name('showProduct');
+Route::GET('productmaterialtype/{id}', [App\Http\Controllers\API\Admin\MaterialController::class, 'getProductMaterial'])->name('getProductMaterial');
+Route::GET('sitecategories/{id}', [App\Http\Controllers\API\Admin\MemorialisationsController::class, 'getSiteCategories'])->name('getSiteCategories');
+Route::POST('checkout', [App\Http\Controllers\API\Customer\CheckoutController::class, 'sendPayment'])->name('sendPayment');
+Route::POST('createimage', [App\Http\Controllers\API\Customer\CustomImageController::class, 'store'])->name('store');
+Route::POST('saveorder', [App\Http\Controllers\API\Customer\ShopController::class, 'store'])->name('store');
+Route::POST('sendContactMessage', [App\Http\Controllers\API\Customer\MemorialisationsController::class, 'sendContactMessage'])->name('sendContactMessage');
+Route::POST('sendDesigns', [App\Http\Controllers\API\Customer\CheckoutController::class, 'sendEmail'])->name('sendEmail');
+Route::GET('getStripeKey', [App\Http\Controllers\API\Customer\CheckoutController::class, 'getStripeKey'])->name('getStripeKey');
+Route::GET('verifyEmailAddress/{token}', [App\Http\Controllers\API\Customer\VerifyEmailAddressController::class, 'verifyEmailAddress'])->name('verifyEmailAddress');

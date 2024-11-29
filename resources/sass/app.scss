@@ -1,0 +1,961 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Great+Vibes&family=Montserrat&family=Roboto&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Vuetify
+@import "~vuetify/dist/vuetify.min.css";
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css');
+
+// Styling used front-end and back-end for articles
+@import 'article';
+
+// body, html { overflow-x:hidden; }
+
+$off-white: #EFEFEF;
+
+$off-black: #283E39;
+
+$slate-grey: #333538;
+
+.off-white-background {
+  background-color: $off-white;
+}
+
+.off-black-text {
+  color: $off-black;
+}
+
+.addNewButtonWrapper {
+    flex: none;
+}
+
+.font-name-info {
+    display: none;
+}
+
+// TODO:: remove old fonts
+@font-face {
+  font-family: "Seagull Md Bt";
+  src: url('./../../public/fonts/SeagullMdBTMedium.ttf');
+}
+
+@font-face {
+  font-family: "CG Triumvirate Bold";
+  src: url('./../../public/fonts/TriumvirateBold.ttf');
+}
+
+@font-face {
+  font-family: "P22 Mackinac Pro";
+  src: url('./../../public/fonts/mackinac_extra.woff');
+}
+
+@font-face {
+  font-family: "Soleil";
+  src: url('./../../public/fonts/soleil_book.woff');
+}
+
+@font-face {
+  font-family: "Arial Bold";
+  font-weight: 'bold';
+  src: url('./../../public/fonts/arial_bold.ttf');
+}
+
+@font-face {
+  font-family: "Blooming Elegant";
+  src: url('./../../public/fonts/blooming_elegant.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Gill Sans";
+  src: url('./../../public/fonts/gill_sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "ITC Zapt Chancery Bold";
+  src: url('./../../public/fonts/itc_zapt_chancery_bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Noyh";
+  src: url('./../../public/fonts/noyhr_bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mason";
+  src: url('./../../public/fonts/mason.otf');
+}
+
+@font-face {
+  font-family: "Stylish Calligraphy";
+  src: url('./../../public/fonts/stylish_calligraphy.ttf');
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  font-weight: 'bold';
+  src: url('./../../public/fonts/timew_new_roman_bold.ttf');
+}
+
+@media screen and (max-width: 768px) {
+  body {
+  overflow-x: hidden;
+}
+}
+
+
+// heading styles (taken from style guide in Figma)
+
+h1 {
+  font-family: 'P22 Mackinac Pro';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: var(--primary-colour);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Soleil';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: $slate-grey;
+}
+
+h2 {
+  font-size: 45px;
+  letter-spacing: -1px;
+}
+
+h3, h4 {
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: -0.5px;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 129%;
+  letter-spacing: -0.5px;
+}
+
+h6 {
+  font-family: 'P22 Mackinac Pro';
+  font-size: 42px;
+  line-height: 42px;
+}
+
+h6.classic {
+  font-family: 'Soleil';
+  line-height: 150%;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+// designs call for H7, but html only uses tags h1-h6
+.h7 {
+  font-family: 'P22 Mackinac Pro';
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 150%;
+  letter-spacing: -0.5px;
+  color: $slate-grey;
+}
+
+.v-btn.v-size--default, .v-btn.v-size--large{
+  font-size: 18px;
+}
+
+.home-page-space {
+  margin-bottom: 50px !important;
+}
+
+.hide-button-hover {
+  text-transform: unset !important;
+}
+
+.hide-button-hover::before {
+  background-color: transparent !important; 
+}
+
+.mobile-menu-text {
+  font-family: 'P22 Mackinac Pro';
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 150%;
+}
+
+// text sizes styles (taken from style guide in Figma)
+.text-size-large, .text-size-medium, .text-size-regular, .text-size-small, .text-size-tiny, .sub-heading {
+  font-family: 'Soleil';
+  font-style: normal;
+  color: $slate-grey;
+}
+
+.text-size-large {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+  color: $slate-grey;
+}
+
+.text-size-medium {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+  color: $slate-grey;
+}
+
+.text-size-regular {
+  font-weight: 350;
+  font-size: 18px !important;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+  color: $slate-grey;
+}
+
+.text-size-small {
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+  color: $slate-grey;
+}
+
+.text-size-tiny {
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.005em;
+  color: $slate-grey;
+}
+
+.sub-heading {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $slate-grey;
+}
+
+.obitus-primary {
+  color: #004C3B;
+}
+
+.obitus-secondary {
+  color: #F5F5EB;
+}
+
+.obitus-secondary-background {
+  background-color: #F5F5EB !important;
+}
+
+fieldset {
+  top: 0px !important;
+  width: 100%;
+}
+
+.pdf-header-banner {
+  padding-top: 15px;
+  background-color: var(--secondary-colour) !important;
+  height: 70px !important;
+}
+
+.pdf-header-text {
+  font-family: 'P22 Mackinac Pro';
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.edited-image {
+  border-radius: 10px;
+}
+
+.bereavement-header {
+  font-family: 'P22 Mackinac Pro';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.heading-h6 {
+  font-family: 'Soleil';
+  font-weight: 700;
+  font-size: 16px !important;
+  line-height: 24px;
+  color: #333538;
+}
+
+.welcome-container {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 50%;
+  width: 100%;
+
+  @media(min-width: 768px) {
+    padding-top: 35%;
+    width: 50%;
+  }
+
+  @media(min-width: 1024px) {
+    padding-top: 15%;
+  }
+
+  @media(min-width: 1600px) {
+    width: 30%;
+  }
+
+
+  h1 {
+    @media(max-width: 576px) {
+      font-size: 4rem;
+    }
+  }
+
+  .welcome-text {
+    margin: 5px 0 35px;
+  }
+}
+
+.powered-by {
+  position: relative;
+  top: 15%;
+  text-align: center;
+  color: #004C3B;
+  font-family: 'Soleil';
+
+  @media(min-width: 1200px) {
+    top: 20%;
+  }
+
+  span.brand {
+    display: inline-block;
+    width: 72px;
+    height: 21px;
+    background-image: url(/svg/obitus.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 3px;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.text-box-container {
+  width: 332px;
+}
+
+.overlay {
+  height: 930px;
+}
+
+.featured-products-container{
+  height: 100%;
+}
+
+.attributes-container {
+  width: 330px;
+  margin-left: 145px;
+}
+
+.middle-nav-link {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.panel {
+  padding: 30px 15px;
+
+  @media(min-width: 576px) {
+    padding: 50px 0px;
+  }
+
+  .panelContent {
+    box-shadow: 6px 6px 15px #F1F1F1;
+    border-radius: 30px;
+    padding: 30px 25px;
+
+    @media(min-width: 576px) {
+      padding: 40px 75px;
+    }
+
+    p {
+      margin: 20px 0 30px 0;
+    }
+  }
+}
+
+.show-menu{
+  position: absolute;
+  z-index: 100;
+  right: 0;
+}
+
+.show-menu-left{
+  position: absolute;
+  z-index: 100;
+  left: 0;
+}
+
+.callback-menu {
+  margin-top: 160px;
+}
+
+.middle-link {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.left-link {
+  position: absolute;
+  left: 0;
+}
+.right-link {
+  position: absolute;
+  right: 50px;
+}
+.sub-heading{
+  text-decoration: none !important;
+}
+
+.button-postition {
+  position: absolute;
+  bottom: -45px;
+}
+
+.terms-checkbox {
+  padding-left: 15%;
+}
+.contact-us-main {
+  padding-left: 35px; padding-right: 35px;
+}
+
+.footer-background {
+  padding-top: 20px;
+  height: 94px;
+}
+
+.footer-link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.footer-links {
+  @media(max-width: 576px) {
+    opacity: .8;
+  }
+}
+
+.middle-footer-links {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.textButton {
+  text-transform: unset;
+  position: absolute;
+  bottom: 0;
+}
+
+.rowGap {
+    margin-top: 30px;
+}
+
+.home-page-row {
+  background-color: #fff;
+}
+
+.thumbnail-image {
+  border-radius: 10px;
+}
+
+.bereavementArticle {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 30px;
+
+  &:hover {
+    box-shadow: 6px 6px 15px rgba(0,0,0,0.1);
+  }
+
+  .v-image {
+    border-radius: 10px;
+  }
+
+  h3 {
+    font-family: "P22 Mackinac Pro";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    color: #333538;
+  }
+
+  p {
+    font-family: "Soleil";
+    color: #333538;
+    letter-spacing: 0.5%;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 18px;
+  }
+
+  a {
+    font-family: "Soleil";
+    font-size: 18px;
+    text-decoration: none;
+  }
+}
+
+.articleHeader {
+  h1 {
+    @media only screen and (max-width: 1200px) and (min-width: 576px)  {
+      font-size: 2.4rem;
+    }
+  }
+  
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.5%;
+  }
+}
+
+.articleBody {
+  background-color: #FFFFFF;
+  padding: 50px 0;
+}
+
+.relatedArticles {
+  margin-bottom: 50px;
+
+  .relatedArticles-title {
+    font-size: 24px;
+    margin: 50px 0 30px 0;
+
+    @media(min-width: 576px) {
+      font-size: 40px;
+      margin: 80px 0 50px 0;
+    }
+  }
+}
+
+.share-container{
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+  padding-top: 28px !important;
+  padding-bottom: 30px !important;
+  height: 1000px !important;
+}
+
+.share-attributes{
+  padding-top: 18px;
+}
+
+.share-header {
+  padding-top: 28px;
+}
+
+.share-image-container{
+  height: 537px;
+}
+
+.text-container{
+  max-width: 700px;
+}
+
+.cancel-button {
+  color: #A9AEB2 !important;
+}
+
+.product-cell {
+  min-height: 230px;
+}
+
+.featured-product-cell {
+  min-height: 150px;
+}
+
+.category-cell {
+  min-height: 230px;
+}
+
+.catFilters {
+  span {
+    font-size: 16px;
+    font-family: "Soleil";
+    font-weight: 700;
+    color: #475a56;
+  }
+
+  .v-chip.v-size--default {
+    padding: 23px 25px;
+    border-radius: 35px;
+    font-size: 16px;
+    height: 42px;
+    cursor: pointer;
+  }
+}
+
+.view-product-button{
+  position: absolute;
+  bottom: 0px;
+}
+
+.product-container {
+  height: 261px;
+}
+
+.v-breadcrumbs {
+  padding: 0 12px;
+
+  @media screen and (max-width: 944px) {
+    margin-top: 10px;
+  }
+}
+
+.v-breadcrumbs__item {
+  color: var(--primary-colour) !important;
+}
+.v-breadcrumbs__item--disabled {
+  color: grey !important;
+}
+
+.v-dialog {
+  border-radius: 30px;
+}
+
+.form-line-height {
+  height: 60px;
+}
+
+.contact-us {
+    color: black !important;
+    text-decoration: underline !important;
+}
+
+.material {
+  width: 49px;
+  border-radius: 200px;
+  height: 49px;
+  box-shadow: 0px 0px 10px #000000;
+}
+
+.material:hover {
+  box-shadow: 0px 0px 10px var(--primary-colour);
+}
+
+.colourSwatches {
+  border-radius: 90px;
+  box-shadow: 2px 2px 2px #888888;
+  width: 49px;
+  height: 49px;
+  padding-top: 21px;
+  margin-bottom: 10px;
+}
+.selected-item{
+  box-shadow: 0px 0px 10px var(--primary-colour);
+}
+.selected-item:hover {
+  box-shadow: 0px 0px 10px var(--primary-colour);
+}
+
+.predefined {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.predefined-title{
+  text-align:left;
+  @media screen and (max-width: 537px) {
+    text-align:center;
+   }
+}
+
+.predefined-box {
+ width: 221px;
+ height: 310px;
+
+ @media screen and (max-width: 537px) {
+  width: 100%;
+ }
+  
+}
+.predefined-containers {
+  background-size: cover !important;
+  height: 211px !important;
+  width: 211px !important;
+  margin-bottom: 20px;
+  margin-left: 5px; margin-right: 5px;
+  @media screen and (max-width: 537px) {
+    margin-left: auto;
+    margin-right:auto;
+   }
+}
+
+.predefined-buttons {
+  display:block;
+  width: 211px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.accordion-icon:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 10px;
+  color: #fff;
+}
+
+.accordion-padding {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+.accordion {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #fff; 
+}
+
+.faq-panel {
+  padding: 0 18px;
+  display: none;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.v-application a.phone-link {
+  color: var(--primary-colour);
+  font-weight:bold;
+}
+
+.v-application {
+  ul {
+    padding-left: 15px;
+  }
+}
+
+.upload-image-text {
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+
+.sitelogo {
+  width: 145px !important;
+  
+}
+
+.terms-link a {
+  color: var(--primary-colour) !important;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.product-link {
+  color: var(--primary-colour) !important;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+  .product-personalisation-container {
+    min-width: 540px; 
+    padding-left: 40px;
+  }
+
+.mt-60 {
+    margin-top: 60px;
+}
+.mb-36{
+    margin-bottom: 36px;
+}
+
+.footer-padding {
+  margin-bottom: 20px;
+}
+
+.featured-description {
+  font-family: "Roboto", sans-serif;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.fadeout {
+    position: absolute;
+    bottom: 0px;
+
+    display: block;
+  
+    width: 100%;
+    height: 20px;
+  
+    background-image: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0), 
+        rgba(255, 255, 255, 0.9)
+    100%);
+}
+
+.error_text
+{
+  color:red;
+}
+
+//mobile
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+
+  .footer-padding {
+    margin-bottom: 30px;
+  }
+
+  .show-menu-left{
+  
+    position: absolute;
+    z-index: 100;
+    left: 16px;
+  }
+
+  .v-btn.v-size--default, .v-btn.v-size--large{
+    font-size: 14px;
+  }
+
+  .footer-background {
+    height: 170px;
+    font-size: 1.1rem;
+  }
+  .middle-footer-links {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .sub-heading {
+    letter-spacing: 0px;
+  }
+
+  .product-personalisation-container {
+    min-width: 395px; 
+    padding-left: 5px;
+  }
+
+  .mt-60 {
+    margin-top: 20px;
+  }
+  .mb-36{
+    margin-bottom: 30px;
+  }
+
+  .main-tos {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .h7 {
+    font-size: 1.5rem;
+  }
+
+  .attributes-container {
+    width: 330px;
+    margin-left: 0px;
+  }
+  
+
+  h6 {
+    font-size: 35px !important;
+  }
+
+  .main-accordion-container {
+    width: 355px;
+  }
+
+  .upload-image-text {
+    padding-left: 53px; 
+    padding-right: 53px;
+  }
+  .terms-checkbox {
+    padding-left: 0%;
+  }
+  .contact-us-main {
+    padding-left: 25px !important; 
+    padding-right: 25px !important;
+  }
+
+  .article-thumbnail-image {
+    width: 302px !important;
+    padding-left: 28px !important;
+    padding-top: 28px !important;
+  }
+
+  .article-text-layout {
+    padding-top: 24px; 
+    padding-left: 28px; 
+    padding-right: 28px;
+  }
+
+}
+
+@media (min-width: 501px) and (max-width: 985px)  {
+  .home-page-row {
+    min-height: 820px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  h6 {
+    font-size: 25px !important;
+  }
+
+  .select-predefined-image {
+    padding-left: 0px !important;
+  }
+
+  .product-personalisation-container {
+    min-width: 370px; 
+    padding-left: 5px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .product-personalisation-container {
+    padding-left: 10px;
+  }
+  
+  
+}

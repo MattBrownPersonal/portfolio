@@ -1,0 +1,28 @@
+FROM php:8-fpm-buster
+
+WORKDIR /var/www/html/
+
+# Fix for autoprefixer (fixed from 2.6-rc onwards)
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
+RUN apt-get update && apt-get install -y \
+  nodejs libyaml-dev \
+  zip unzip libzip-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
+  libmagickwand-dev --no-install-recommends \
+  && pecl install imagick yaml
+
+RUN docker-php-ext-enable imagick yaml \
+  && docker-php-ext-configure gd --with-freetype --with-jpeg \
+  && docker-php-ext-install -j$(nproc) gd
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql zip gd
+
+RUN apt-get update && apt-get install -y chromium libnss3-dev
+
+RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+
+RUN useradd --create-home vivedia \
+  && mkdir /node_modules && chown vivedia:vivedia -R /node_modules /var/www/html/
+USER vivedia
+
+ADD ./docker/php/conf.d/error_reporting.ini /usr/local/etc/php/conf.d/error_reporting.ini

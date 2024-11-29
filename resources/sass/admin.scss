@@ -1,0 +1,188 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Smooch&family=Titan+One');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Vuetify
+@import "~vuetify/dist/vuetify.min.css";
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css');
+
+//wysiwyg
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
+
+// Styling used front-end and back-end for articles
+@import 'article';
+
+.alert ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@font-face {
+  font-family: "P22 Mackinac Pro";
+  src: url('./../../public/fonts/mackinac_extra.woff');
+}
+
+@font-face {
+  font-family: "Soleil";
+  src: url('./../../public/fonts/soleil_book.woff');
+}
+
+.a4-leaflet-design {
+  color: #4a4a49;
+
+  .text-size-large, .text-size-medium, .text-size-regular, .text-size-small, .text-size-tiny, .sub-heading {
+    font-family: 'Soleil';
+    font-style: normal;
+  }
+
+  .text-size-large {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+  }
+
+  .text-size-medium {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-family: 'P22 Mackinac Pro';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: 'Soleil';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 0px;
+  }
+
+  h2 {
+    font-size: 32px;
+    letter-spacing: 0px;
+  }
+}
+
+.article-contents{
+  h1 {
+    font-family: 'P22 Mackinac Pro';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: var(--primary-colour);
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: 'Soleil';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -1px;
+  }
+
+  h2 {
+    font-size: 45px;
+    letter-spacing: -1px;
+  }
+
+  h3, h4 {
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+  }
+
+  h5 {
+    font-size: 20px;
+    line-height: 129%;
+    letter-spacing: -0.5px;
+  }
+
+  h6 {
+    font-family: 'P22 Mackinac Pro';
+    font-size: 45px;
+    line-height: 45px;
+  }
+
+  h6.classic {
+    font-family: 'Soleil';
+    line-height: 150%;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  // designs call for H7, but html only uses tags h1-h6
+  .h7 {
+    font-family: 'P22 Mackinac Pro';
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 150%;
+    letter-spacing: -0.5px;
+  }
+
+  .mobile-menu-text {
+    font-family: 'P22 Mackinac Pro';
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 150%;
+  }
+
+  // text sizes styles (taken from style guide in Figma)
+  .text-size-large, .text-size-medium, .text-size-regular, .text-size-small, .text-size-tiny, .sub-heading {
+    font-family: 'Soleil';
+    font-style: normal;
+  }
+
+  .text-size-large {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+  }
+
+  .text-size-medium {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+  }
+
+  .text-size-regular {
+    font-weight: 350;
+    font-size: 18px !important;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+  }
+
+  .text-size-small {
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.015em;
+  }
+
+  .text-size-tiny {
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.005em;
+  }
+}

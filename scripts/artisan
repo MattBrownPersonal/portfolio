@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+cd "$(dirname "$0")"
+export GROUP_ID=$(id -g $USER)
+export USER_ID=$(id -u $USER)
+
+docker exec -it memorialisation-web  ./artisan $@
